@@ -86,7 +86,7 @@ form.addEventListener('submit', (e) => {
 
     if (form.id === 'reg-form') {
         if(validate(emailField) && validate(passwordField)) {
-            console.log('request sended')
+            /* requests here */
         }
         else {
             submitBtn.disabled = true
@@ -94,7 +94,7 @@ form.addEventListener('submit', (e) => {
     }
     else if (form.id === 'passwordReset-form') {
         if(validate(emailField)) {
-            console.log('request sended')
+            /* requests here */
         }
         else {
             submitBtn.disabled = true
