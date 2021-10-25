@@ -11,3 +11,10 @@ body {
 #validation-EmailCheck, #validation-PasswordCheck {
   display: none;
 }
+
+.reg-form {
+  width: 350px;
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
+  background-color: white;
+}
