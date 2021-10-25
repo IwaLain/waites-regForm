@@ -1,73 +1,103 @@
+const submitBtn = document.querySelector('#submit-btn')
+const form = document.querySelector('form')
+
+const emailField = document.querySelector('#email-field')
+const passwordField = document.querySelector('#password-field')
+
 const validationEmailCheck = document.querySelector('#validation-EmailCheck')
 const validationPasswordCheck = document.querySelector('#validation-PasswordCheck')
-const submitBtn = document.querySelector('#submit-btn')
 
 
-const validateEmail = (e) => {
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let isValid, errorMsg
+const isEmail = (str) => {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    if (!e.value || e.value === '') {
-        isValid = false
-        errorMsg = 'Email is required.'
+    if (!str || str === '') {
+        return 'Email is required.'
     }
-    else if (!re.test(e.value)) {
-        isValid = false
-        errorMsg = 'Email is not valid.'
+    else if (!re.test(str)) {
+        return 'Email is not valid.'
     }
     else {
-        isValid = true
-        errorMsg = ''
-    }
-
-    if (isValid) {
-        validationEmailCheck.style.display = 'none'
-        e.classList = 'form-control is-valid'
-        submitBtn.disabled = false
-    }
-    else {
-        validationEmailCheck.style.display = 'block'
-        validationEmailCheck.textContent = errorMsg
-        validationEmailCheck.classList = 'invalid-feedback'
-        e.classList = 'form-control is-invalid'
-        submitBtn.disabled = true
+        return ''
     }
 }
 
-const validatePassword = (e) => {
-    let isValid, errorMsg
-
-    if (!e.value || e.value === '') {
-        isValid = false
-        errorMsg = 'Password is required.'
+const isPassword = (str) => {
+    if (!str || str === '') {
+        return'Password is required.'
     }
-    else if (e.value.length < 3) {
-        isValid = false
-        errorMsg = 'Password must contain at least 3 characters.'
+    else if (str.length < 3) {
+        return 'Password must contain at least 3 characters.'
     }
-    else if (!/\d+/.test(e.value)) {
-        isValid = false
-        errorMsg = 'Password must contain at least 1 number.'
+    else if (!/\d+/.test(str)) {
+        return 'Password must contain at least 1 number.'
     }
-    else if (!/[a-zA-Z]/.test(e.value)) {
-        isValid = false
-        errorMsg = 'Password must contain at least 1 letter.'
+    else if (!/[a-zA-Z]/.test(str)) {
+        return 'Password must contain at least 1 letter.'
     }
     else {
-        isValid = true
-        errorMsg = ''
-    }
-
-    if (isValid) {
-        validationPasswordCheck.style.display = 'none'
-        e.classList = 'form-control is-valid'
-        submitBtn.disabled = false
-    }
-    else {
-        validationPasswordCheck.style.display = 'block'
-        validationPasswordCheck.textContent = errorMsg
-        validationPasswordCheck.classList = 'invalid-feedback'
-        e.classList = 'form-control is-invalid'
-        submitBtn.disabled = true
+        return ''
     }
 }
+
+const validate = (e) => {
+    let errorMsg
+
+    switch (e.id) {
+        case 'email-field':
+            errorMsg = isEmail(e.value)
+
+            if (!errorMsg) {
+                validationEmailCheck.style.display = 'none'
+                e.classList = 'form-control is-valid'
+                submitBtn.disabled = false
+                return true
+            }
+            else {
+                validationEmailCheck.style.display = 'block'
+                validationEmailCheck.textContent = errorMsg
+                validationEmailCheck.classList = 'invalid-feedback'
+                e.classList = 'form-control is-invalid'
+                submitBtn.disabled = true
+                return false
+            }
+        case 'password-field':
+            errorMsg = isPassword(e.value)
+
+            if (!errorMsg) {
+                validationPasswordCheck.style.display = 'none'
+                e.classList = 'form-control is-valid'
+                submitBtn.disabled = false
+                return true
+            }
+            else {
+                validationPasswordCheck.style.display = 'block'
+                validationPasswordCheck.textContent = errorMsg
+                validationPasswordCheck.classList = 'invalid-feedback'
+                e.classList = 'form-control is-invalid'
+                submitBtn.disabled = true
+                return false
+            }
+    }
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    if (form.id === 'reg-form') {
+        if(validate(emailField) && validate(passwordField)) {
+            console.log('request sended')
+        }
+        else {
+            submitBtn.disabled = true
+        }
+    }
+    else if (form.id === 'passwordReset-form') {
+        if(validate(emailField)) {
+            console.log('request sended')
+        }
+        else {
+            submitBtn.disabled = true
+        }
+    }
+})

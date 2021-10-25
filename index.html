@@ -15,15 +15,15 @@
 <body>
     <div class="container d-flex flex-column align-items-center justify-content-center">
         <h1>Registration</h1>
-        <form action="post">
+        <form id="reg-form" action="post">
             <div class="mb-3">
-                <label class="form-label" for="reg-email">Email</label>
-                <input class="form-control" id="reg-email" onblur="validateEmail(this)" type="text" placeholder="Enter your email">
+                <label class="form-label" for="email-field">Email</label>
+                <input class="form-control" id="email-field" onblur="validate(this)" type="text" placeholder="Enter your email">
                 <div id="validation-EmailCheck" class="valid-feedback"></div>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="reg-password">Password</label>
-                <input class="form-control" id="reg-password" type="password" onblur="validatePassword(this)" placeholder="Enter your password">
+                <label class="form-label" for="password-field">Password</label>
+                <input class="form-control" id="password-field" type="password" onblur="validate(this)" placeholder="Enter your password">
                 <div id="validation-PasswordCheck" class="valid-feedback"></div>
             </div>
             <div class="mb-3">
