@@ -9,12 +9,13 @@ const validationPasswordCheck = document.querySelector('#validation-PasswordChec
 
 
 const isEmail = (str) => {
+    const value = str.trim()
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    if (!str || str === '') {
+    if (!value || value === '') {
         return 'Email is required.'
     }
-    else if (!re.test(str)) {
+    else if (!re.test(value)) {
         return 'Email is not valid.'
     }
     else {
@@ -23,16 +24,18 @@ const isEmail = (str) => {
 }
 
 const isPassword = (str) => {
-    if (!str || str === '') {
+    const value = str.trim()
+
+    if (!value || value === '') {
         return'Password is required.'
     }
-    else if (str.length < 3) {
+    else if (value.length < 3) {
         return 'Password must contain at least 3 characters.'
     }
-    else if (!/\d+/.test(str)) {
+    else if (!/\d+/.test(value)) {
         return 'Password must contain at least 1 number.'
     }
-    else if (!/[a-zA-Z]/.test(str)) {
+    else if (!/[a-zA-Z]/.test(value)) {
         return 'Password must contain at least 1 letter.'
     }
     else {

@@ -8,7 +8,7 @@ body {
   height: 100vh;
 }
 
-#validation-EmailCheck, #validation-PasswordCheck {
+.invalid-feedback {
   display: none;
 }
 
