@@ -10,16 +10,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Login</title>
 </head>
 <body class="bg-dark">
     <div class="container d-flex flex-column align-items-center justify-content-center">
         <form class="reg-form p-5" id="reg-form" action="post">
-            <h2>Registration</h2>
+            <h2>Login</h2>
             <div class="mb-3">
-                <label class="form-label" for="email-field">Email</label>
-                <input class="form-control" id="email-field" onblur="validate(this)" type="text" placeholder="Enter your email">
-                <div id="validation-EmailCheck" class="invalid-feedback"></div>
+                <label class="form-label" for="login-field">Email or username</label>
+                <input class="form-control" id="login-field" onblur="validate(this)" type="text" placeholder="Enter your email or username">
+                <div id="validation-LoginCheck" class="invalid-feedback"></div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="password-field">Password</label>
@@ -29,10 +29,10 @@
             <div class="mb-3">
                 <a href="password-reset.html">Forgot a password?</a>
             </div>
-            <button id="submit-btn" class="btn btn-primary" type="submit">Register</button>
+            <button id="submit-btn" class="btn btn-primary" type="submit">Login</button>
         </form>
-
-        <script src="main.js"></script>
     </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
