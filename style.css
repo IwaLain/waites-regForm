@@ -7,3 +7,7 @@ body {
   align-items: center;
   height: 100vh;
 }
+
+#validation-EmailCheck, #validation-PasswordCheck {
+  display: none;
+}
