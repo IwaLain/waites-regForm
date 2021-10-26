@@ -16,17 +16,17 @@
     <div class="container d-flex flex-column align-items-center justify-content-center">
         <form class="reg-form" id="reg-form" action="post">
             <h2>Login</h2>
-            <div class="mb-3">
+            <div class="form-row">
                 <label class="form-label" for="login-field">Email or username</label>
                 <input class="form-control" id="login-field" onblur="validate(this)" type="text" placeholder="Enter your email or username">
                 <div id="validation-LoginCheck" class="invalid-feedback"></div>
             </div>
-            <div class="mb-3">
+            <div class="form-row">
                 <label class="form-label" for="password-field">Password</label>
                 <input class="form-control" id="password-field" type="password" onblur="validate(this)" placeholder="Enter your password">
                 <div id="validation-PasswordCheck" class="invalid-feedback"></div>
             </div>
-            <div class="mb-3">
+            <div class="form-row">
                 <a href="password-reset.html">Forgot a password?</a>
             </div>
             <button id="submit-btn" class="btn btn-primary" type="submit">Login</button>
