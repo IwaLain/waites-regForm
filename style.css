@@ -17,12 +17,14 @@ body {
   box-shadow: 0 0 5px black;
   border-radius: 10px;
   background-color: white;
+  padding: 50px;
 }
 
 @media (max-width: 760px) {
 .reg-form {
   width: 100vw;
   height: 100vh;
+  padding: 50px;
 }
 .reg-form input {
   height: 50px;
@@ -31,4 +33,30 @@ body {
   width: 100%;
   height: 50px;
 }
+}
+
+@media (max-height: 400px) {
+.reg-form {
+  padding: 20px;
+}
+.reg-form input {
+  height: 40px;
+}
+.reg-form > button {
+  width: 100%;
+  height: 40px;
+}
+}
+
+@media (max-height: 320px) {
+  .reg-form {
+    padding: 10px;
+  }
+  .reg-form input {
+    height: 30px;
+  }
+  .reg-form > button {
+    width: 100%;
+    height: 32px;
+  }
 }
